@@ -8,8 +8,8 @@
 
             <a class="nav-link" href="{{ route('teacher.batches') }}">
                 <div class="sb-nav-link-icon"><i class="fas fa-chair"></i></div>
-                Batches   
-            </a>
+                Batches
+               </a>
         </div>
     </div>
     <div class="sb-sidenav-footer ">

@@ -77,7 +77,11 @@ class TeacherController extends Controller
         if ($file) {
             $file_name = 'aci-' . time() . '-' . $file->getClientOriginalName();
         } else {
-            $file_name = 'default.png';
+            if ($request->gender === 'Male') {
+                $file_name = 'boy.png';
+            } else{
+                $file_name = 'girl.jpg';
+            }
         }
 
         $data = [
@@ -172,7 +176,7 @@ class TeacherController extends Controller
     {
         $request->validate([
             'name' => ['required'],
-            'email' => ['required', 'unique:users,email,' . $teacher->user_id . ',id'], 
+            'email' => ['required', 'unique:users,email,' . $teacher->user_id . ',id'],
             'gender' => ['required'],
             'course' => ['required'],
             'shift' => ['required'],
@@ -180,13 +184,13 @@ class TeacherController extends Controller
 
         if (!empty($request->phone)) {
             $request->validate([
-                'phone' => ['unique:users,phone_no']
+                'phone' => ['unique:users,phone_no,' . $teacher->user_id . ',id']
             ]);
         }
 
         if (!empty($request->cnic)) {
             $request->validate([
-                'cnic' => ['unique:users,cnic']
+                'cnic' => ['unique:users,cnic,' . $teacher->user_id . ',id']
             ]);
         }
 

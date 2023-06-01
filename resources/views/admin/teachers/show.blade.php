@@ -28,7 +28,7 @@
                         <div class="col-lg-4">
                           <div class="card mb-4">
                             <div class="card-body text-center">
-                              <img src="{{ asset('teacher_uploads/' . $teacher->user->profile_picture) }}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px">
+                              <img src="{{ asset('default_photos/' . $teacher->user->profile_picture) }}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px">
                               <h5 class="my-3">{{ $teacher->user->name }}</h5>
                               @if ($teacher->status == 1 )
                               <span class="text-white badge bg-success mb-3">Active</span>
@@ -68,7 +68,11 @@
                                   <p class="mb-0">Date of birth</p>
                                 </div>
                                 <div class="col-sm-9">
-                                  <p class="text-muted mb-0">{{ $teacher->user->dob }}</p>
+                                    @if ($teacher->user->dob)
+                                    <p class="text-muted mb-0">{{ $teacher->user->dob }}</p>
+                                    @else
+                                    <p class="text-muted mb-0">N/A</p>
+                                    @endif
                                 </div>
                               </div>
                               <hr>
@@ -95,7 +99,11 @@
                                   <p class="mb-0">Phone</p>
                                 </div>
                                 <div class="col-sm-9">
-                                  <p class="text-muted mb-0">{{ $teacher->user->phone_no }}</p>
+                                    @if ($teacher->user->phone_no)
+                                    <p class="text-muted mb-0">{{ $teacher->user->phone_no }}</p>
+                                    @else
+                                    <p class="text-muted mb-0">N/A</p>
+                                    @endif
                                 </div>
                               </div>
                               <hr>
@@ -104,7 +112,11 @@
                                   <p class="mb-0">CNIC</p>
                                 </div>
                                 <div class="col-sm-9">
-                                  <p class="text-muted mb-0">{{ $teacher->user->cnic }}</p>
+                                    @if ($teacher->user->cnic)
+                                    <p class="text-muted mb-0">{{ $teacher->user->cnic }}</p>
+                                    @else
+                                    <p class="text-muted mb-0">N/A</p>
+                                    @endif
                                 </div>
                               </div>
                               <hr>
@@ -113,7 +125,11 @@
                                   <p class="mb-0">Address</p>
                                 </div>
                                 <div class="col-sm-9">
-                                  <p class="text-muted mb-0">{{ $teacher->user->address }}</p>
+                                    @if ($teacher->user->address)
+                                    <p class="text-muted mb-0">{{ $teacher->user->address }}</p>
+                                    @else
+                                    <p class="text-muted mb-0">N/A</p>
+                                    @endif
                                 </div>
                               </div>
                             </div>

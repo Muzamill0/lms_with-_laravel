@@ -79,6 +79,13 @@ class StudentController extends Controller
         if (count($seats) == 0) {
             return back()->with('error', 'No seats available');
         }
+        $profile = '';
+
+        if ($request->gender === 'Male') {
+            $profile = 'boy.png';
+        } else{
+            $profile = 'girl.jpg';
+        }
 
         $data = [
             'name' => $request->name,
@@ -89,7 +96,7 @@ class StudentController extends Controller
             'gender' => $request->gender,
             'dob' => $request->dob,
             'address' => $request->address,
-            'profile_picture' => 'default.png',
+            'profile_picture' => $profile,
             'user_type' => 'Student',
         ];
 

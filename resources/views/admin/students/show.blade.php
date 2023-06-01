@@ -26,7 +26,7 @@
                         <div class="col-lg-4">
                             <div class="card mb-4">
                                 <div class="card-body text-center">
-                                    <img src="{{ asset('student_uploads/' . $student->user->profile_picture) }}" alt="avatar" class="rounded-circle img-fluid"
+                                    <img src="{{ asset('default_photos/' . $student->user->profile_picture) }}" alt="avatar" class="rounded-circle img-fluid"
                                         style="width: 150px; height: 150px">
                                     <h5 class="my-3">{{ $student->user->name }}</h5>
                                     @if ($student->status == 1)
@@ -130,7 +130,7 @@
                         </div>
                     </div>
 
-                    
+
                     <div class="row">
                         <div class="col-md-6">
                             <h3>Enrollment Details</h3>
